@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :donations,  foreign_key: "sender_id"
+
+  before_save :set_saldo_zero
+  
+  def set_saldo_zero
+    self.saldo ||= 0
+  end
 end

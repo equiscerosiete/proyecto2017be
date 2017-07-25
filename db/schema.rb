@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724170322) do
+ActiveRecord::Schema.define(version: 20170725154348) do
 
   create_table "donations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "balance"
+    t.float    "residue"
+    t.float    "value"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170724170322) do
     t.string   "btc"
     t.string   "phone"
     t.string   "country"
+    t.float    "saldo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -20,11 +20,14 @@ class DonationsController < ApplicationController
   def edit
   end
 
+  def sent_donation
+    
+  end
+
   # POST /Donations
   # POST /Donations.json
   def create
     @Donation = Donation.new(donation_params)
-
     respond_to do |format|
       if @Donation.save
         format.html { redirect_to @Donation, notice: 'Donation was successfully created.' }
